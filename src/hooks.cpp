@@ -15,9 +15,7 @@ namespace Hooks {
 
 	RE::EffectSetting* BoundItemMonitor::GetBaseObject(RE::ActiveEffect* a_effect)
 	{
-		if (a_effect &&
-			(a_effect->flags.any(RE::ActiveEffect::Flag::kDual)
-				|| a_effect->castingSource == RE::MagicSystem::CastingSource::kInstant)) {
+		if (a_effect && (a_effect->flags.any(RE::ActiveEffect::Flag::kDual)	|| a_effect->castingSource == RE::MagicSystem::CastingSource::kInstant)) {
 			a_effect->castingSource = RE::MagicSystem::CastingSource::kRightHand;
 		}
 		return _getBaseObject(a_effect);
